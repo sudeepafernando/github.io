@@ -1,1 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Your Name — Creator & Writer</title>
+  <meta
+    name="description"
+    content="Faith, conversations, books and ideas by Your Name."
+  />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --bg-soft: #121212;
+      --card: #151515;
+      --text: #f5f2eb;
+      --muted: #9e9b94;
+      --line: rgba(255,255,255,0.10);
+      --accent: #d8bd7b;
+      --accent-soft: #f1dfae;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(216,189,123,0.08),
+          transparent 30%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    /* ---------------- NAV ---------------- */
+
+    nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.35rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 80px;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      line-height: 0.93;
+      letter-spacing: -0.04em;
+      max-width: 800px;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 1.07rem;
+      margin-top: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 38px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 25px;
+      border-radius: 100px;
+      border: 1px solid var(--line);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 650px;
+      background: #191919;
+    }
+
+    .hero-image img {
+      height: 650px;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.8);
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 60%,
+        rgba(0,0,0,0.45)
+      );
+    }
+
+    .small-note {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      background: var(--accent-soft);
+      color: #141414;
+      padding: 16px 20px;
+      font-size: 0.83rem;
+      z-index: 3;
+      max-width: 210px;
+    }
+
+    /* ---------------- STATS ---------------- */
+
+    .stats {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+      padding: 55px 30px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:first-child {
+      padding-left: 0;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-platform {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      font-size: 0.67rem;
+      margin-bottom: 8px;
+    }
+
+    .stat-number {
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 8px;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 130px 0;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 65px;
+    }
+
+    .section-number {
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+
+    .section-description {
+      margin-top: 24px;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    /* ---------------- CONTENT ---------------- */
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .big-copy {
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.15;
+    }
+
+    .content-text {
+      color: var(--muted);
+      max-width: 550px;
+    }
+
+    .content-text p + p {
+      margin-top: 20px;
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 32px;
+    }
+
+    .topic {
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 9px 15px;
+      font-size: 0.75rem;
+      color: #c5c2bb;
+    }
+
+    /* ---------------- BOOKS ---------------- */
+
+    .books {
+      background: var(--bg-soft);
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .book-card {
+      padding: 40px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 35px;
+      align-items: center;
+      transition: 0.25s ease;
+    }
+
+    .book-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(216,189,123,0.35);
+    }
+
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 0.68;
+      background: #252525;
+      overflow: hidden;
+    }
+
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.65rem;
+    }
+
+    .book-title {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.75rem;
+      line-height: 1.1;
+      margin-top: 12px;
+    }
+
+    .book-description {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin: 15px 0 22px;
+    }
+
+    .download-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 4px;
+    }
+
+    /* ---------------- START HERE ---------------- */
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .featured-item {
+      min-height: 370px;
+      border: 1px solid var(--line);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      background: #151515;
+      transition: 0.25s ease;
+    }
+
+    .featured-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .featured-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 70% 20%,
+          rgba(216,189,123,0.15),
+          transparent 45%
+        );
+    }
+
+    .featured-type {
+      color: var(--accent);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      z-index: 1;
+    }
+
+    .featured-title {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.8rem;
+      line-height: 1.15;
+      margin-top: 12px;
+      z-index: 1;
+    }
+
+    /* ---------------- CTA ---------------- */
+
+    .end-section {
+      text-align: center;
+      padding: 150px 0;
+    }
+
+    .end-section h2 {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding-top: 60px;
+      }
+
+      .hero-image-wrapper {
+        padding-left: 0;
+      }
+
+      .hero-image,
+      .hero-image img {
+        min-height: 500px;
+        height: 500px;
+      }
+
+      .small-note {
+        left: -5px;
+      }
+
+      .content-layout,
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .book-card {
+        grid-template-columns: 140px 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 90px 0;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 35px 0;
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .book-card {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+
+      .book-cover {
+        max-width: 190px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <div class="container">
+    <nav>
+      <a class="logo" href="#">Your Name.</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#books">Books</a>
+        <a href="#start">Start here</a>
+        <a href="#follow">Follow</a>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- HERO -->
+
+  <main class="container">
+
+    <div class="hero">
+
+      <div>
+
+        <div class="eyebrow">
+          Creator · Writer · Faith
+        </div>
+
+        <h1>
+          Faith for<br>
+          real life.
+        </h1>
+
+        <p class="hero-copy">
+          Hey, I'm <strong>Your Name</strong>. I create faith-based
+          content across YouTube, TikTok and Facebook and write about
+          faith, questions and following Jesus in everyday life.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#start" class="btn btn-primary">
+            Explore my content
+          </a>
+
+          <a href="#books" class="btn btn-secondary">
+            Read my books
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-image-wrapper">
+
+        <div class="hero-image">
+
+          <!--
+          ADD YOUR PHOTO HERE:
+          images/profile.jpg
+          -->
+
+          <img
+            src="images/profile.jpg"
+            alt="Your Name"
+          >
+
+        </div>
+
+        <div class="small-note">
+          Creating conversations about faith, life and Jesus.
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- SOCIAL STATS -->
+
+  <div class="stats">
+
+    <div class="container stats-grid">
+
+      <a
+        class="stat"
+        href="YOUR-TIKTOK-LINK"
+        target="_blank"
+      >
+        <div class="stat-platform">TikTok</div>
+
+        <!-- CHANGE THIS NUMBER -->
+        <div class="stat-number">25K+</div>
+
+        <div class="stat-label">
+          Followers
+        </div>
+      </a>
+
+
+      <a
+        class="stat"
+        href="YOUR-YOUTUBE-LINK"
+        target="_blank"
+      >
+        <div class="stat-platform">YouTube</div>
+
+        <!-- CHANGE THIS NUMBER -->
+        <div class="stat-number">10K+</div>
+
+        <div class="stat-label">
+          Subscribers
+        </div>
+      </a>
+
+
+      <a
+        class="stat"
+        href="YOUR-FACEBOOK-LINK"
+        target="_blank"
+      >
+        <div class="stat-platform">Facebook</div>
+
+        <!-- CHANGE THIS NUMBER -->
+        <div class="stat-number">15K+</div>
+
+        <div class="stat-label">
+          Followers
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="content-layout">
+
+        <div>
+
+          <div class="section-number">
+            01 / WHY I CREATE
+          </div>
+
+          <div class="big-copy">
+            Not everything about faith has to sound complicated.
+          </div>
+
+        </div>
+
+
+        <div class="content-text">
+
+          <p>
+            I make content that explores faith in a way that feels
+            honest, understandable and connected to everyday life.
+          </p>
+
+          <p>
+            Sometimes that's a short video. Sometimes it's a longer
+            conversation. Sometimes it's something that deserves
+            an entire book.
+          </p>
+
+          <div class="topics">
+            <span class="topic">Faith</span>
+            <span class="topic">Jesus</span>
+            <span class="topic">Questions</span>
+            <span class="topic">Scripture</span>
+            <span class="topic">Life</span>
+            <span class="topic">Growth</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOOKS -->
+
+  <section class="books" id="books">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="section-number">
+          02 / BOOKS
+        </div>
+
+        <h2>
+          Things that needed more than a 60-second video.
+        </h2>
+
+        <p class="section-description">
+          I've written two books exploring faith in greater depth.
+          You can download them here.
+        </p>
+
+      </div>
+
+
+      <div class="books-grid">
+
+
+        <!-- BOOK ONE -->
+
+        <div class="book-card">
+
+          <div class="book-cover">
+
+            <img
+              src="images/book-1.jpg"
+              alt="Book One"
+            >
+
+          </div>
+
+
+          <div>
+
+            <div class="book-label">
+              Book One
+            </div>
+
+            <!-- CHANGE BOOK TITLE -->
+
+            <div class="book-title">
+              Your First Book Title
+            </div>
+
+
+            <!-- CHANGE DESCRIPTION -->
+
+            <p class="book-description">
+              Write one or two short sentences explaining what
+              this book is about and why someone should read it.
+            </p>
+
+
+            <!-- CHANGE DOWNLOAD LINK -->
+
+            <a
+              class="download-link"
+              href="YOUR-BOOK-1-DOWNLOAD-LINK"
+              target="_blank"
+            >
+              Download free →
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- BOOK TWO -->
+
+        <div class="book-card">
+
+          <div class="book-cover">
+
+            <img
+              src="images/book-2.jpg"
+              alt="Book Two"
+            >
+
+          </div>
+
+
+          <div>
+
+            <div class="book-label">
+              Book Two
+            </div>
+
+            <!-- CHANGE BOOK TITLE -->
+
+            <div class="book-title">
+              Your Second Book Title
+            </div>
+
+
+            <!-- CHANGE DESCRIPTION -->
+
+            <p class="book-description">
+              Write one or two short sentences explaining what
+              someone will find inside your second book.
+            </p>
+
+
+            <!-- CHANGE DOWNLOAD LINK -->
+
+            <a
+              class="download-link"
+              href="YOUR-BOOK-2-DOWNLOAD-LINK"
+              target="_blank"
+            >
+              Download free →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- START HERE -->
+
+  <section id="start">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="section-number">
+          03 / START HERE
+        </div>
+
+        <h2>
+          If you're new here.
+        </h2>
+
+        <p class="section-description">
+          A few places I'd recommend starting.
+        </p>
+
+      </div>
+
+
+      <div class="featured-grid">
+
+
+        <!-- FEATURE 1 -->
+
+        <a
+          href="YOUR-FIRST-VIDEO-LINK"
+          target="_blank"
+          class="featured-item"
+        >
+
+          <div class="featured-type">
+            YouTube
+          </div>
+
+          <div class="featured-title">
+            Put one of your best video titles here.
+          </div>
+
+        </a>
+
+
+        <!-- FEATURE 2 -->
+
+        <a
+          href="YOUR-SECOND-VIDEO-LINK"
+          target="_blank"
+          class="featured-item"
+        >
+
+          <div class="featured-type">
+            TikTok
+          </div>
+
+          <div class="featured-title">
+            Put another piece of content here.
+          </div>
+
+        </a>
+
+
+        <!-- FEATURE 3 -->
+
+        <a
+          href="#books"
+          class="featured-item"
+        >
+
+          <div class="featured-type">
+            Books
+          </div>
+
+          <div class="featured-title">
+            Looking for something longer? Read my books.
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOLLOW -->
+
+  <section class="end-section" id="follow">
+
+    <div class="container">
+
+      <div class="section-number">
+        KEEP IN TOUCH
+      </div>
+
+      <h2>
+        Continue the conversation elsewhere.
+      </h2>
+
+
+      <div class="social-links">
+
+        <a
+          class="btn btn-secondary"
+          href="YOUR-YOUTUBE-LINK"
+          target="_blank"
+        >
+          YouTube ↗
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="YOUR-TIKTOK-LINK"
+          target="_blank"
+        >
+          TikTok ↗
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="YOUR-FACEBOOK-LINK"
+          target="_blank"
+        >
+          Facebook ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © <span id="year"></span> Your Name
+      </div>
+
+      <div>
+        Faith · Ideas · Conversations
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
